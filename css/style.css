@@ -1,0 +1,379 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+   overflow-x: hidden;
+    font-family: sans-serif;
+    background: #111;
+    background: linear-gradient(rgba(0, 0, 0, 0.192), rgba(0, 0, 0, 0.144)),url('../img/bcg.png');
+    background-size:  cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+  }
+
+
+  .nazev{
+
+    font-size: 5vh;
+    padding-top: 10%;
+   color: white;
+    text-align: center;
+position: relative;
+
+
+}
+.container{
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.644), rgba(0, 0, 0, 0.692))
+}
+.text{
+    text-align: center;
+    padding: 25px;
+}
+
+
+
+
+ /*   width 100% = 12 ,velikosti  md lg sm */
+  /*menu*/
+ .logol{
+height: 110px;
+width: auto;
+ }
+  nav{
+    background: #112410;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    color: #fff;
+    
+  }
+  .nav-links {
+      display: flex;
+      justify-content:space-around;
+      width: 50%;
+      text-transform: uppercase;
+      z-index: 5;
+  }
+  .nav-links a{
+    font-size: 21px;
+    padding: 20px;
+    display: block;
+     text-transform: uppercase;
+     text-decoration: none;
+     color: #fff;
+    border-bottom:3px solid transparent;
+    transition:0.5s ease;
+    transform: translateX(0%);
+  }
+  .nav-links a:hover{
+    color:#b4f0af;
+      letter-spacing: 5px;
+
+    
+  }
+  .burger{
+    display: none;
+    
+  }
+  .burger div{
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 5px;
+    transition:all 0.5s ease;
+    z-index: 5;
+  }
+  @media only screen and (max-width: 810px){
+  
+    .logol{
+        height: 80px;
+        width: auto;
+         }
+     nav{
+      justify-content: space-between;
+      padding: 10px 5vw;
+    }
+    .nav-links{
+      position: fixed;
+      right: 0;
+      top:8vh;
+      min-height:92vh;
+      background: #112410;
+      display: flex;
+      flex-direction: column;
+      align-items: center;   
+      width: 50%;
+      margin: 0;
+      padding: 0;
+      transform: translateX(100%);
+      transition:All 0.5s ease-in;
+    }
+    .nav-links a{
+      opacity: 0;
+   
+    }
+    .burger{
+      display: block;
+    }
+   
+  }
+  @media only screen and (max-width: 640px){
+    .logol{
+        height: 40px;
+        width: auto;
+         }
+    nav{
+      justify-content: space-between;
+      padding: 10px 5vw;
+    }
+  }
+  .nav-active{
+    transform: translateX(0);
+  }
+  @media only screen and (max-width: 460px){
+    .logol{
+        height: 55px;
+        width: auto;
+         }
+    nav{
+        padding: 0 5vw;
+      }
+    .nav-links{
+      width: 100%;
+      transition:All 0.5s ease;
+    }
+  }
+  .nav-active{
+    transform: translateX(0);
+  }
+  @keyframes navLinkFade{
+    from{
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .toggle .line1{
+     transform: rotate(-45deg) translate(-5px,6px );
+  }
+  .toggle .line2{
+     opacity: 0;
+  }
+  .toggle .line3{
+     transform: rotate(45deg) translate(-5px,-6px );
+  }
+  /*menu*/
+
+
+/*scroll*/
+#scroll{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 12%;
+  position: relative;
+  z-index: 3;
+}
+
+/*scroll*/
+/*loading*/
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading img {
+  width: 50px;
+  height: 50px;
+}/*loading*/
+
+/*ikony*/
+
+.ikona{
+  color: rgb(155, 248, 152);
+  text-decoration: none;
+  transition: 1s;
+
+}
+.ikona:hover{
+  letter-spacing: 5px;
+  color: black;
+  background-color: rgb(8, 141, 8);
+}
+/*galerie*/
+ .gallery {
+    position: relative;
+    width: 100%;
+    height: 820px;
+    overflow: hidden;
+    background-size: cover;
+    padding-bottom: 5%;
+    width: 100%;
+    z-index: 2;
+}
+
+  
+  .slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+    filter: brightness(0.6); /* nastavení jasu na 80 % */
+  }
+  
+  .slides img {
+    width: 20%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: gray;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: black;
+  }
+  
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+    
+  }
+  
+  .prev:hover,
+  .next:hover {
+    color: rgb(17, 197, 17);
+    
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  .next {
+    right: 0;
+  } 
+  @media only screen and (max-width: 1000px){
+    .gallery {
+ position: relative;
+ width: 100%;
+ height: 720px;
+ overflow: hidden;
+ background-size: cover;
+ padding-bottom: 5%;
+ width: 100%;
+ 
+}
+#scroll{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 16%;
+  position: relative;
+}
+}
+@media only screen and (max-width: 700px){
+  .gallery {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+    background-size: cover;
+    padding-bottom: 5%;
+    width: 100%;
+    
+   }
+   #scroll{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    position: relative;
+  }
+  }
+    /*galerie*/ 
+
+    .zapis{
+      margin-top: 3em;
+      margin-left:10% ;
+      margin-right:10% ;
+      width: 80%;
+      height: 80%;
+    }
+
+    .otevrenedvere{padding-top: 1em;}
+    /*footer*/
+    footer{
+      margin-top: auto; 
+    
+        background-color: #111;
+    
+        text-align: center;
+        color: #fff;
+    
+    }
+    a:link {
+      text-decoration: none;
+    }
+    .bota a{
+      color: white;
+      transition: 1s;
+    font-size: 20px;
+      margin: 5px;
+    }
+    .bota a:hover{
+      color:#b4f0af;
+      letter-spacing: 5px;
+    }
+    .ikona1{
+     
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      transition: 1s;
+    }
+    .ikona1:hover{
+      letter-spacing: 5px;
+      color: rgb(106, 201, 103);
+    }
+ 
+/*footer*/    
